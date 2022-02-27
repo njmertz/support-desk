@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 // Server Routes
 app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/tickets', require('./routes/ticketRoutes'));
 
 // Custom Middleware - Error Handler
 app.use(errorHandler);
