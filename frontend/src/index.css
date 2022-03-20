@@ -59,7 +59,8 @@ h3 {
 }
 
 .header ul li {
-  margin-left: 20px;
+  margin-left:20px;
+  position:relative;
 }
 
 .header ul li a {
@@ -73,6 +74,45 @@ h3 {
 
 .header ul li a svg {
   margin-right: 5px;
+}
+
+.header ul li.user-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 0;
+  min-width: 150px;
+}
+
+.header ul.sub-menu {
+  background-color: #FFF;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+  flex-direction:column;
+  align-items:stretch;
+  left: -20px;
+  position: absolute;
+  width: calc(100% + 20px);
+  z-index: 9999999999;
+  top: calc(100% + 21px);
+  transition: opacity ease-in-out .2s;
+}
+
+.header ul.sub-menu.menu-closed{
+  opacity:0;
+}
+
+.header ul.sub-menu.menu-opened{
+  opacity:1;
+}
+
+.header ul.sub-menu li{
+  margin-left:0;
+  padding:8px;
+  width:100%;
+}
+
+.header ul.sub-menu li .btn{
+  width:100%;
 }
 
 .heading {
@@ -209,7 +249,9 @@ h3 {
 }
 
 .ticket,
-.ticket-headings {
+.ticket-headings,
+.user,
+.user-headings {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -222,7 +264,13 @@ h3 {
   text-align: center;
 }
 
-.ticket-headings {
+.tickets.five-columns .ticket,
+.tickets.five-columns .ticket-headings{
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.ticket-headings,
+.user-headings {
   font-weight: 700;
 }
 
@@ -255,27 +303,32 @@ h3 {
   border-radius: 10px;
 }
 
-.ticket-page {
+.ticket-page,
+.user-page {
   position: relative;
   text-align: left;
 }
 
-.ticket-page h2 {
+.ticket-page h2,
+.user-page h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.ticket-page .btn {
+.ticket-page .btn,
+.user-page .btn {
   margin-bottom: 30px;
 }
 
-.ticket-page .btn-block {
+.ticket-page .btn-block,
+.user-page .btn-block {
   width: 100%;
   margin-top: 30px;
 }
 
-.ticket-desc {
+.ticket-desc,
+.user-desc {
   margin: 20px 0;
   font-size: 17px;
   background-color: #f4f4f4;

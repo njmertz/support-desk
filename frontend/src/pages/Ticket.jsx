@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import {FaTimes, FaPlus} from 'react-icons/fa';
 import {useSelector, useDispatch} from 'react-redux';
 import {getTicket, closeTicket} from '../features/tickets/ticketSlice';
-import {getNotes, createNote, reset as notesReset} from '../features/notes/noteSlice';
+import {getNotes, createNote} from '../features/notes/noteSlice';
 import {useParams, useNavigate} from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';

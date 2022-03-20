@@ -34,6 +34,22 @@ export const login = createAsyncThunk('auth/login',async (user, thunkAPI) => {
   }
 });
 
+// Update logged-in user
+export const updateAuthUser = (authUser, payload) => {
+  if(authUser._id !== payload._id){
+    return authUser;
+  }
+  const {name, email, isAdmin} = payload;
+  const updatedAuthData = {
+    ...authUser,
+    name,
+    email,
+    isAdmin
+  }
+  localStorage.setItem('user', JSON.stringify(updatedAuthData));
+  return updatedAuthData;
+};
+
 // Logout user
 export const logout = createAsyncThunk('auth/logout', async () => {
   await authService.logout();
@@ -48,6 +64,9 @@ export const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.message = "";
+    },
+    updateAuth: (state, action) => {
+      state.user = updateAuthUser(state.user, action.payload);
     }
   },
   extraReducers: (builder) => {
@@ -86,5 +105,5 @@ export const authSlice = createSlice({
   }
 });
 
-export const {reset} = authSlice.actions;
+export const {reset, updateAuth} = authSlice.actions;
 export default authSlice.reducer;

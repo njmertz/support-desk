@@ -1,14 +1,19 @@
 import {Link} from 'react-router-dom';
 
 function TicketItem({ticket}) {
-  const {createdAt, product, status, _id} = ticket;
+  const {_id:ticketId, createdAt, product, status, user:ticketOwner} = ticket;
+
+  for(let [key, value] of Object.entries(ticket)){
+    console.log(key, value);
+  }
 
   return (
     <div className="ticket">
-      <div>{new Date(createdAt).toLocaleString('en-us')}</div>
-      <div>{product}</div>
-      <div className={`status status-${status}`}>{status}</div>
-      <Link to={`/ticket/${_id}`} className="btn btn-reverse btn-sm">View</Link>
+      {ticketOwner && ticketOwner.name && (<div>{ticketOwner.name}</div>)}
+      {createdAt && (<div>{new Date(createdAt).toLocaleString('en-us')}</div>)}
+      {product && (<div>{product}</div>)}
+      {status && (<div className={`status status-${status}`}>{status}</div>)}
+      <Link to={`/ticket/${ticketId}`} className="btn btn-reverse btn-sm">View</Link>
     </div>
   )
 }

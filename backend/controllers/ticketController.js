@@ -3,6 +3,20 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/userModel');
 const Ticket = require('../models/ticketModel');
 
+// @desc   Get all tickets regardless of user
+// @route  GET /api/tickets/all
+// @access Private 
+const getAllTickets = asyncHandler(async (req, res) => {
+  if(!req.user.isAdmin || req.user.isAdmin === false){
+    res.status(401);
+    throw new Error('Not Authorized');
+  }
+
+  const tickets = await Ticket.find({}).select('-createdAt,updatedAt,__v').populate('user','_id, name');
+
+  res.status(200).json(tickets);
+});
+
 // @desc   Get user tickets
 // @route  GET /api/tickets
 // @access Private 
@@ -136,6 +150,7 @@ const updateTicket = asyncHandler(async (req, res) => {
 
 module.exports = {
   getTickets,
+  getAllTickets,
   getTicket,
   createTicket,
   deleteTicket,
