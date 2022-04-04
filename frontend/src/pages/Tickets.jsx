@@ -10,6 +10,10 @@ function Tickets() {
 
   const dispatch = useDispatch();
 
+  const linkState = {
+    allTickets: false
+  };  
+
   useEffect(() => {
     return () => {
       if(isSuccess){
@@ -27,7 +31,7 @@ function Tickets() {
   return (
     <>
       <BackButton url="/" />
-      <h1>Tickets</h1>
+      <h1>My Tickets</h1>
       <div className="tickets">
         <div className="ticket-headings">
           <div>Date</div>
@@ -36,7 +40,7 @@ function Tickets() {
           <div></div>
         </div>
         {tickets.map(ticket => (
-          <TicketItem key={ticket._id} ticket={ticket} />
+          <TicketItem key={ticket._id} ticket={ticket} linkState={linkState} />
         ))}
       </div>
     </>

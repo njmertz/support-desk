@@ -10,6 +10,10 @@ function AllTickets() {
 
   const dispatch = useDispatch();
 
+  const linkState = {
+    allTickets: true
+  };
+
   useEffect(() => {
     return () => {
       if(isSuccess){
@@ -37,7 +41,7 @@ function AllTickets() {
           <div></div>
         </div>
         {tickets.map(ticket => (
-          <TicketItem key={ticket._id} ticket={ticket} />
+          <TicketItem key={ticket._id} ticket={ticket} linkState={linkState} />
         ))}
       </div>
     </>

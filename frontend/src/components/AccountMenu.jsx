@@ -29,7 +29,8 @@ function AccountMenu() {
   if(user){
     return (
       <ul>
-        <li className="user-menu"><span>Hello, {user.name} {menuIsOpen ? (<FaAngleUp onClick={toggleMenu} />) : (<FaAngleDown onClick={toggleMenu} />) }</span>
+        <li className="user-menu">
+          <span>Hello, {user.name} {menuIsOpen ? (<FaAngleUp onClick={toggleMenu} />) : (<FaAngleDown onClick={toggleMenu} />) }</span>
           <ul className={`sub-menu ${menuIsOpen ? 'menu-opened' : 'menu-closed'}`}>
             {user.isAdmin === true && (
               <>
@@ -37,7 +38,7 @@ function AccountMenu() {
                   <Link to='/users'><FaUser /> Users</Link>
                 </li>
                 <li>
-                  <Link to='/tickets/all'><FaTicketAlt /> Tickets</Link>
+                  <Link to='/tickets/all'><FaTicketAlt /> All Tickets</Link>
                 </li>
               </>
             )}

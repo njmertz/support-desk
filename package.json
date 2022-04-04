@@ -20,7 +20,9 @@
     "express": "^4.17.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.1"
+    "mongoose": "^6.2.1",
+    "prop-types": "^15.8.1",
+    "url-prop-type": "^1.2.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

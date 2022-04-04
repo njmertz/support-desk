@@ -115,6 +115,8 @@ h3 {
   width:100%;
 }
 
+
+
 .heading {
   font-size: 2rem;
   font-weight: 700;
@@ -223,6 +225,71 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+}
+
+.flex-container{
+  display:flex;
+}
+
+.flex-row{
+  flex-direction:row;
+}
+
+.flex-column{
+  flex-direction:column;
+}
+
+.flex-jc-center{
+  justify-content:center;
+}
+
+.flex-jc-end{
+  justify-content:flex-end;
+}
+
+.flex-jc-start{
+  justify-content:flex-start;
+}
+
+.flex-jc-space-around{
+  justify-content:space-around;
+}
+
+.flex-jc-space-between{
+  justify-content:space-between;
+}
+
+.flex-jc-space-evenly{
+  justify-content:space-evenly;
+}
+
+.flex-jc-stretch{
+  justify-content:stretch;
+}
+
+.flex-al-baseline{
+  align-items:baseline;
+}
+
+.flex-ai-center{
+  align-items:center;
+}
+
+.flex-ai-end{
+  align-items:flex-end;
+}
+
+.flex-ai-start{
+  align-items:flex-start;
+}
+
+.flex-ai-stretch{
+  align-items:stretch;
+}
+
+.button-row .btn.btn-block{
+  flex:0 1 calc(100% - 20px);
+  margin:10px;
 }
 
 .ticket-created {
@@ -408,6 +475,20 @@ footer {
   text-align: center;
 }
 
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #e6e6e6;
+  margin-top: 60px;
+}
+
+.footer .copyright{
+  flex:0 1 100%;
+  width:100%;
+}
+
 .loadingSpinnerContainer {
   position: fixed;
   top: 0;
@@ -440,6 +521,15 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .flex-column-mobile{
+    flex-direction:column;
+  }
+
+  .button-row .btn.btn-block{
+    flex:0 1 100%;
+    width:100%;
+  }
+  
   .boxes {
     grid-template-columns: 1fr;
   }
@@ -455,5 +545,12 @@ footer {
 
   .heading p {
     font-size: 1.5rem;
+  }
+}
+
+@media (min-width:601px) and (max-width:959px) {
+  .button-row .btn.btn-block{
+    padding:10px;
+    font-size:14px;
   }
 }

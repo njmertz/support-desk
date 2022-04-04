@@ -95,10 +95,10 @@ function User() {
         <p>{new Date(user.createdAt).toLocaleString('en-us')}</p>
       </main>
 
-      <button onClick={openModal} className="btn"><FaEdit /> Edit User Details</button>
+      <button onClick={openModal} className="btn"><FaEdit /> Edit {authUserId !== formData._id ? 'User' : 'Your'} Details</button>
 
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel='Edit User'>
-        <h2>Edit User</h2>
+        <h2>Edit {authUserId !== formData._id ? 'User' : 'Details'}</h2>
         <button className="btn-close" onClick={closeModal}><FaTimes /></button>
         <form onSubmit={onUpdateFormSubmit}>
           <div className="form-group">

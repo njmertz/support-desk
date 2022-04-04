@@ -1,4 +1,5 @@
 import {useSelector} from 'react-redux';
+import PropTypes from 'prop-types';
 
 function NoteItem({note}) {
   const {user} = useSelector((state) => state.auth);
@@ -14,6 +15,10 @@ function NoteItem({note}) {
       </div>
     </div>
   )
-}
+};
+
+NoteItem.propTypes = {
+  note: PropTypes.object.isRequired
+};
 
 export default NoteItem;
