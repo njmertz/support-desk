@@ -19,7 +19,7 @@ function Home() {
         <Link to='/tickets' className='btn btn-block'>
           <FaTicketAlt /> View My Tickets
         </Link>
-        {user.isAdmin === true && (
+        {user !== null && user.isAdmin === true && (
           <Link to='/tickets/all' className='btn btn-block'>
             <FaTicketAlt /> View All Tickets
           </Link>
