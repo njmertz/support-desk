@@ -28,7 +28,7 @@ router.get('/list', protect, getAll);
 router.get('/list/:userId', protect, getUser);
 
 // Update user
-// router.post('/list/:userId', protect, updateUser);
+router.post('/list/:userId', protect, updateUser);
 router.put('/list/:userId', protect, updateUser);
 
 module.exports = router;

@@ -65,7 +65,7 @@ function User() {
 
   useEffect(() => {
     dispatch(getUser(userId));
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if(user){
