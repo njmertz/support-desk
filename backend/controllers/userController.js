@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/userModel');
-const { restart } = require('nodemon');
 const { json } = require('express/lib/response');
 
 // @desc   Register a new user
